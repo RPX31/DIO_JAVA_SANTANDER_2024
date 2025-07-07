@@ -6,17 +6,24 @@ public class Conta {
     double saldo;
 
 
-    public Conta(){};
+    public Conta(){}
 
-    
-    public void buscarConta(int numeroDaConta){
-
-       numeroDaConta = this.getNumero();
-
-        System.out.println("Conta encontrada" + numeroDaConta);
+     public void visualizarConta() {
+        System.out.println("==== Dados da Conta ====");
+        System.out.println("Cliente: " + this.nomeCliente);
+        System.out.println("Agência: " + this.agencia);
+        System.out.println("Número da Conta: " + this.numero);
+        System.out.printf("Saldo: R$ %.2f%n", this.saldo);
+        System.out.println("========================");
+    }
+    public void buscarConta(int numeroDaConta) {
+        if (this.numero == numeroDaConta) {
+            System.out.println("Conta encontrada: " + this.numero);
+        } else {
+            System.out.println("Conta não encontrada.");
+        }
     }
     public void depositar(double valor){
-
         this.setSaldo(this.getSaldo() + valor ) ;
     }
     public int getNumero() {
@@ -37,10 +44,10 @@ public class Conta {
     public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
-    public Double getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
-    public void setSaldo(Double saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 }
